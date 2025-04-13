@@ -22,7 +22,7 @@
 
 | Login Page             | Dashboard              | Pie Charts              |
 |------------------------|------------------------|-------------------------|
-| ![Login](screenshots/login.jpg) | ![Dashboard](screenshots/dashboard.jpg) | ![Charts](screenshots/charts.jpg) |
+| ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) | ![Charts](screenshots/charts.png) |
 
 ---
 

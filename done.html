@@ -434,9 +434,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // ---------------------------
+      
       // Authentication Code
-      // ---------------------------
       const authContainer = document.getElementById('authContainer');
       const appContainer = document.getElementById('appContainer');
       const loginBox = document.getElementById('loginBox');
@@ -542,14 +541,10 @@
         });
       }
       
-      // ---------------------------
       // Date Validation for Expense Date
-      // ---------------------------
       document.getElementById('expenseDate').max = new Date().toISOString().split('T')[0];
       
-      // ---------------------------
       // Data Management Functions
-      // ---------------------------
       function getData(key) {
         return JSON.parse(localStorage.getItem(key)) || [];
       }
@@ -558,18 +553,14 @@
         updateUI();
       }
       
-      // ---------------------------
       // Update UI Functions (Transactions, Charts, Stats)
-      // ---------------------------
       function updateUI() {
         updateTransactions();
         updateCharts();
         updateStats();
       }
       
-      // ---------------------------
       // Income Form Submission
-      // ---------------------------
       document.getElementById('incomeForm').addEventListener('submit', e => {
         e.preventDefault();
         const transaction = {
@@ -584,9 +575,7 @@
         e.target.reset();
       });
       
-      // ---------------------------
       // Expense Form Submission
-      // ---------------------------
       document.getElementById('expenseForm').addEventListener('submit', e => {
         e.preventDefault();
         const transaction = {
@@ -601,9 +590,7 @@
         e.target.reset();
       });
       
-      // ---------------------------
       // Transaction List (Display, Edit, Delete)
-      // ---------------------------
       window.deleteTransaction = function(id, type) {
         const data = getData(type).filter(t => t.id !== id);
         saveData(type, data);
@@ -640,9 +627,7 @@
         document.getElementById('transactionList').innerHTML = html;
       }
       
-      // ---------------------------
       // Update Charts
-      // ---------------------------
       function updateCharts() {
         updateChart('income', incomeChart);
         updateChart('expense', expenseChart);
@@ -659,9 +644,7 @@
         chart.update();
       }
       
-      // ---------------------------
       // Update Statistics
-      // ---------------------------
       function updateStats() {
         const income = getData('income').reduce((sum, t) => sum + t.amount, 0);
         const expense = getData('expense').reduce((sum, t) => sum + t.amount, 0);
@@ -671,13 +654,10 @@
         document.getElementById('balance').style.color = (income - expense) >= 0 ? '#00b894' : '#d63031';
       }
       
-      // ---------------------------
       // Initialize Charts on Load
-      // ---------------------------
       incomeChart = initChart(document.getElementById('incomeChart').getContext('2d'));
       expenseChart = initChart(document.getElementById('expenseChart').getContext('2d'));
       
-      // On page load, decide which container to show based on "loggedIn" flag.
       if (isLoggedIn()) {
         showApp();
       } else {
